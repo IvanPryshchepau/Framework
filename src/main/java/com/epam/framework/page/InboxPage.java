@@ -23,6 +23,8 @@ public class InboxPage {
 
     private final String xpathCompose = "//div[@class='T-I J-J5-Ji T-I-KE L3']";
     private final String xpathSend = "//div[@class='T-I J-J5-Ji aoO T-I-atl L3']";
+    private final String xpathParams = "//div[@class='T-I J-J5-Ji ash T-I-ax7 L3']";
+    private final String xpathSettings = "//div[@class='J-N aMS']";
 
 
     public InboxPage(WebDriver driver) {
@@ -54,6 +56,11 @@ public class InboxPage {
 
     public void goToSpam(){
         driver.navigate().to("https://mail.google.com/mail/#spam");
+    }
+
+    public void goToSettings(){
+        driver.findElement(By.xpath(xpathParams)).click();
+        driver.findElement(By.xpath(xpathSettings)).click();
     }
 
     public void checkLetter(String subject){

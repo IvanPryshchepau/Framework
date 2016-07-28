@@ -17,6 +17,14 @@ public class Main {
         LoginPageSteps loginPageSteps = new LoginPageSteps(driver);
         loginPageSteps.openHomePage();
         InboxPage inboxPage = loginPageSteps.logIn(1);
+        inboxPage.goToSettings();
+    }
+
+    public void firstTest(){
+        WebDriver driver = FactoryDriver.getInstance();
+        LoginPageSteps loginPageSteps = new LoginPageSteps(driver);
+        loginPageSteps.openHomePage();
+        InboxPage inboxPage = loginPageSteps.logIn(1);
         InboxPageSteps inboxPageSteps = new InboxPageSteps(driver);
 
         inboxPageSteps.sendMessage(inboxPage,
@@ -41,8 +49,5 @@ public class Main {
         loginPageSteps.logIn(2);
 
         inboxPageSteps.checkSpam(inboxPage, "Test1");
-
-        //FactoryDriver.closeDriver();
     }
-
 }
